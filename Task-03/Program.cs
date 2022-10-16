@@ -1,28 +1,35 @@
-﻿Console.Write("Введите число: ");
+﻿Console.Write("Введите номер дня: ");
 int num = Convert.ToInt32(Console.ReadLine());
-int count = 0, border = 0;
 
-if (num >= 0)
+if (num == 1)
 {
-    count = -num;
-    border = num;
+    Console.WriteLine("Понедельник");
+}
+else if (num == 2)
+{
+    Console.WriteLine("Вторник");
+}
+else if (num == 3)
+{
+    Console.WriteLine("Среда");
+}
+else if (num == 4)
+{
+    Console.WriteLine("Четверг");
+}
+else if (num == 5)
+{
+    Console.WriteLine("Пятница");
+}
+else if (num == 6)
+{
+    Console.WriteLine("Суббота");
+}
+else if (num == 7)
+{
+    Console.WriteLine("Воскресенье");
 }
 else
 {
-    count = num;
-    border = -num;
-}
-
-while (count <= border)
-{
-    if (count == border)
-    {
-        Console.WriteLine($" {count}");
-        count++;
-    }
-    else
-    {
-        Console.Write($" {count},");
-        count++;
-    }
+    Console.WriteLine("Нет такого дня в неделе!");
 }
