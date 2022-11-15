@@ -2,17 +2,17 @@
 // 0, 7, 8, -2, -2 -> 2
 // 1, -7, 567, 89, 223-> 3
 
-// метод возвращает целочисленный массив, полученный из входной строки par(string), полагая разделителем par2
+// метод возвращает целочисленный массив, полученный из входной строки par(string), полагая разделителем слов par2
 int[] ConvertStrToIntArray(string par, char par2)
 {
     int countWords = 0;
     for (int i = 0; i < par.Length; i++)
-        if (par[i] == par2) countWords++;   // посчитаем количество разделителей
-    countWords++;                           // добавим 1 для последнего слова
+        if (par[i] == par2) countWords++;               // посчитаем количество разделителей
+    countWords++;                                       // добавим 1 для последнего слова
 
-    int[] result = new int[countWords];     // создаем целочисленный массив по вычисленному количеству слов
+    int[] result = new int[countWords];                 // создаем целочисленный массив по вычисленному количеству слов
     int countWord = 0;
-    string word = "";                       // заготовка для формирования слова
+    string word = "";                                   // заготовка для формирования слова
     for (int i = 0; i < par.Length; i++)
     {
         if (par[i] == par2 || i == par.Length - 1)      // если достигнут очередной разделитель, то...
@@ -37,6 +37,20 @@ int CountPositiveNums(int[] par)
         if (par[i] > 0) res++;
     return res;
 }
+// метод формирует строку ответа в зависимости от полученного par
+string MakeReportStr(int par)
+{
+    string res = "";
+    if (par == 11 || par == 12 || par == 13)
+        res = "положительных чисел!";
+    else if (par % 10 == 1)
+        res = "число!";
+    else if (par % 10 == 2 || par % 10 == 3 || par % 10 == 4)
+        res = "положительных числа!";
+    else
+        res = "положительных чисел!";
+    return res;
+}
 
 Console.Write("Введите несколько чисел, разделяя пробелами: ");
 string? inputStr = Console.ReadLine();                                                  // ? - учитываем возможность введения пустой строки
@@ -47,15 +61,7 @@ if (inputStr != null)                                                           
     int[] inputs = ConvertStrToIntArray(inputStr, ' ');                                 // конвертируем входную строку в числовой массив
     int numPositives = CountPositiveNums(inputs);                                       // считаем количество положительныч чисел в массиве
     
-
-    if (numPositives == 11 || numPositives == 12 || numPositives == 13)
-        Console.WriteLine($"Введено {numPositives} положительных чисел!");
-    else if (numPositives % 10 == 1)
-        Console.WriteLine($"Введено {numPositives} число!");
-    else if (numPositives % 10 == 2 || numPositives % 10 == 3 || numPositives % 10 == 4)
-        Console.WriteLine($"Введено {numPositives} положительных числа!");
-    else
-        Console.WriteLine($"Введено {numPositives} положительных чисел!");
+    Console.WriteLine($"Введено {numPositives} {MakeReportStr(numPositives)}");
 }
 else
     Console.Write("Числа не были введены!");
