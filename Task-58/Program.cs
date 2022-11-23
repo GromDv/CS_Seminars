@@ -30,7 +30,7 @@ void PrintMatrix(int[,] array)
 // метод возвращает матрицу произведения двух входящих матриц
 int[,] MultyplyMatrix(int[,] arr1, int[,] arr2)
 {
-    int[,] res = new int[arr1.GetLength(1), arr1.GetLength(0)];
+    int[,] res = new int[arr1.GetLength(1), arr2.GetLength(1)];
 
     for (int i = 0; i < arr1.GetLength(0); i++)
     {
@@ -46,7 +46,7 @@ int MultElem(int indI, int indJ, int[,] arr1, int[,] arr2)
 {
     int res = 0;
 
-    for (int i = 0; i < arr1.GetLength(0); i++)
+    for (int i = 0; i < arr1.GetLength(1); i++)
     {
         res += arr1[indI, i] * arr2[i, indJ];
     }
@@ -55,9 +55,9 @@ int MultElem(int indI, int indJ, int[,] arr1, int[,] arr2)
 // метод проверяет возможность перемножения матриц (равенство столбцов1 и строк2)
 bool MultyplyAbility(int[,] arr1, int[,] arr2) => arr1.GetLength(1) == arr2.GetLength(0);
 
-int[,] mtr1 = CreateMatrixRndInt(2, 2, 0, 3);
+int[,] mtr1 = CreateMatrixRndInt(2, 3, 0, 3);   // матрица 1:   2х3
 PrintMatrix(mtr1);
-int[,] mtr2 = CreateMatrixRndInt(2, 2, 0, 3);
+int[,] mtr2 = CreateMatrixRndInt(3, 4, 0, 3);   // матрица 2:   3х4
 PrintMatrix(mtr2);
 
 if (MultyplyAbility(mtr1, mtr2))
