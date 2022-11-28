@@ -8,9 +8,9 @@ int AkkermanFunc(int m, int n)
     if (m < 0 || n < 0) return 0;
     if (m == 0)
     {
-        return AkkermanFunc(m, n - 1) + 1;
+        return n + 1;
     }
-    else if(n == 0)
+    if(n == 0)
     {
         return AkkermanFunc(m - 1, 1);
     }
