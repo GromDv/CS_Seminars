@@ -5,14 +5,31 @@ HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
 HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');
 VerticalLine leftLine = new VerticalLine(0, 24, 0, '+');
 VerticalLine rightLine = new VerticalLine(0, 24, 78, '+');
+upLine.Draw();
+downLine.Draw();
+leftLine.Draw();
+rightLine.Draw();
 
-upLine.Drow();
-downLine.Drow();
-leftLine.Drow();
-rightLine.Drow();
 
 // Отрисовка точек			
 Point p = new Point(4, 5, '*');
-p.Draw();
+Snake snake = new Snake(p, 4, Direction.RIGHT);
+snake.Draw();
+snake.Move();
+Thread.Sleep(300);
+snake.Move();
+Thread.Sleep(300);
+snake.Move();
+Thread.Sleep(300);
+snake.Move();
+Thread.Sleep(300);
+snake.Move();
+Thread.Sleep(300);
+snake.Move();
+Thread.Sleep(300);
+snake.Move();
+Thread.Sleep(300);
+snake.Move();
+Thread.Sleep(300);
 
 Console.WriteLine();
